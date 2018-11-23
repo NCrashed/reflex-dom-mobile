@@ -1,7 +1,8 @@
 module Main where
 
 import App.Frontend
-import Reflex.Dom 
+import App.Frontend.Style
+import Reflex.Dom
 
 main :: IO ()
-main = mainWidget frontend
+main = mainWidgetWithCss frontendCssBS frontend

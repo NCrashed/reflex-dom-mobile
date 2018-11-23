@@ -13,13 +13,13 @@ in reflex-platform.project ({ pkgs, ... }: {
   };
   overrides = import ./overrides.nix { inherit reflex-platform minimize; };
 
-  android.frontend = {
+  android.app-front = {
     executableName = "app-front";
     applicationId = "org.example.appfront";
     displayName = "Example Android App";
   };
 
-  ios.frontend = {
+  ios.app-front = {
     executableName = "app-front";
     bundleIdentifier = "org.example.appfront";
     bundleName = "Example iOS App";
