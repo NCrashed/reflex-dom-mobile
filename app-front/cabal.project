@@ -1,4 +1,0 @@
-compiler: ghcjs
-packages:
-  ./.
-  ../app-shared
