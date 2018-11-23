@@ -12,6 +12,7 @@ and build management.
 Bellow I describe how to perform typical actions to build and develop the project. Prerequisites are:
 * You have to install [nix](https://nixos.org/nix/)
 * You have to build under MacOS to compile iOS native application or configure nix distrubted build.
+* For NixOS users: configure binary cache from [reflex-platform](https://github.com/reflex-frp/reflex-platform/blob/develop/notes/NixOS.md) to avoid very long builds of tools. Non NixOS users should get binary cache for free.
 
 # Building backend
 
@@ -128,6 +129,10 @@ Build apk with:
 nix-build -A android.app-front -o android-result
 ```
 Upload `android-result/android-app-debug.apk` to device manually or by `android-result/bin/deploy`.
+
+## Notes for Android
+
+You can use native functions of Android system, see [the entry module](https://github.com/reflex-frp/reflex-dom/blob/develop/reflex-dom/src-android/Reflex/Dom/Android/MainWidget.hsc) and [bindings for activies](https://github.com/obsidiansystems/android-activity/blob/develop/src/Android/HaskellActivity.hsc).
 
 # Building frontend for iOS
 
