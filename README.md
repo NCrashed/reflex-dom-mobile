@@ -1,5 +1,6 @@
-It is example of [reflex-dom](https://github.com/reflex-frp/reflex-dom) application that can be build with GHCJS and
-as Android and iOS applicatons.
+It is example of [reflex-dom](https://github.com/reflex-frp/reflex-dom) application that can be build with GHCJS and as Android and iOS applicatons.
+
+Online demo is located [here](https://ncrashed.github.io/reflex-dom-mobile/).
 
 <img src="./docs/android_screen_001.jpg" width="300">
 
