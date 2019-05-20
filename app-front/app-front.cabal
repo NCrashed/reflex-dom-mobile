@@ -9,7 +9,17 @@ category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
 
+flag android
+  description: Build an Android app
+  default: False
+  manual: True
+
 library
+  if flag(android)
+    c-sources: cbits/android.c
+    cpp-options: -DANDROID
+    build-tools: hsc2hs
+
   hs-source-dirs:      src
   exposed-modules:
     App.Frontend

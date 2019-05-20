@@ -18,8 +18,13 @@ let
         ${pkgs.zopfli}/bin/zopfli -i1000 all.min.js
         '';
   });
+in (self: super: let
   prodOverride = drv: if minimize then runClosureCompiler (optimizeGhcjs drv) else drv;
-in (self: super: {
-    app-front = prodOverride super.app-front;
+  isAndroid = self.ghc.stdenv.targetPlatform.libc == "bionic";
+  androidOverride = drv: if isAndroid then overrideCabal drv (drv: {
+    configureFlags = (drv.configureFlags or []) ++ ["-fandroid"];
+  }) else drv;
+  in {
+    app-front = prodOverride (androidOverride super.app-front);
   }
 )

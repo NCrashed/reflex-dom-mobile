@@ -1,6 +1,7 @@
 { minimize ? false }:
 let
   reflex-platform = import ./reflex-platform.nix {};
+  pkgs = reflex-platform.nixpkgs;
 in reflex-platform.project ({ pkgs, ... }: {
   packages = {
     app-front = ./app-front;
