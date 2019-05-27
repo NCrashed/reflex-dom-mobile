@@ -19,6 +19,10 @@ library
     c-sources: cbits/android.c
     cpp-options: -DANDROID
     build-tools: hsc2hs
+    include-dirs: include
+    install-includes: android.h
+    exposed-modules: App.Frontend.Android
+    hs-source-dirs: src-android
 
   hs-source-dirs:      src
   exposed-modules:
@@ -38,6 +42,7 @@ library
   default-extensions:
     BangPatterns
     ConstraintKinds
+    CPP
     DataKinds
     DeriveDataTypeable
     DeriveGeneric

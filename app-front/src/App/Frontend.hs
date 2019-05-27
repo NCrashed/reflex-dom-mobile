@@ -5,6 +5,9 @@ module App.Frontend(
 import App.Shared
 import Control.Monad.Fix
 import Reflex.Dom
+#ifdef ANDROID
+import App.Frontend.Android
+#endif
 
 frontend :: (MonadHold t m, PostBuild t m, DomBuilder t m, MonadFix m) => m ()
 frontend = do
