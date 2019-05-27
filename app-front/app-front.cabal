@@ -23,6 +23,7 @@ library
     install-includes: android.h
     exposed-modules: App.Frontend.Android
     hs-source-dirs: src-android
+    extra-libraries: log android
 
   hs-source-dirs:      src
   exposed-modules:
