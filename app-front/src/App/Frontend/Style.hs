@@ -20,3 +20,5 @@ frontendCss = do
   ".counter" |> button ? do
     marginRight (px 10)
     marginLeft  (px 10)
+  "button" ? do
+    marginLeft  (px 10)

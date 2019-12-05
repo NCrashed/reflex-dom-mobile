@@ -1,6 +1,11 @@
 { minimize ? false }:
 let
-  reflex-platform = import ./reflex-platform.nix {};
+  reflex-platform = import ./reflex-platform.nix {
+    nixpkgsOverlays = [
+      (self: super: import ./nixpkgs-overlays/default.nix self super)
+    ];
+    config.android_sdk.accept_license = true;
+  };
 in reflex-platform.project ({ pkgs, ... }: {
   packages = {
     app-front = ./app-front;
@@ -17,6 +22,9 @@ in reflex-platform.project ({ pkgs, ... }: {
     executableName = "app-front";
     applicationId = "org.example.appfront";
     displayName = "Example Android App";
+    runtimeSharedLibs = nixpkgs: [
+      "${nixpkgs.secp256k1}/lib/libsecp256k1.so"
+    ];
   };
 
   ios.app-front = {

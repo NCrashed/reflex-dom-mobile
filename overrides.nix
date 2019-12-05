@@ -21,5 +21,6 @@ let
   prodOverride = drv: if minimize then runClosureCompiler (optimizeGhcjs drv) else drv;
 in (self: super: {
     app-front = prodOverride super.app-front;
+    clay = self.callPackage ./derivations/clay.nix {};
   }
 )
